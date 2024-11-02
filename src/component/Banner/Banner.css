@@ -1,0 +1,56 @@
+.banner_carousel {
+    width: 100%;
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border-bottom: 2px solid white;
+}
+
+
+.banner_image_container {
+    width: 100px;
+    height: 250px;
+    overflow: hidden;
+    
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+
+    transition: width 0.2s ease-in-out;
+    flex-shrink: 0;
+}
+
+.banner_image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nombre{
+    width: 100%;
+    height: 20%;
+    line-height: 45px;
+    position: relative;
+    top: 50%;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+.banner_image_container.banner_img_expanded{
+    width: 30%;
+}
+
+.banner_image.banner_img_expanded {
+    transform: scaleX(3); /* Ajusta la escala según sea necesario */
+}
+
+.banner_image:hover,.nombre:hover{
+    cursor: pointer;
+}
