@@ -1,0 +1,82 @@
+.tarjeta_favorito{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: linear-gradient(90deg,rgb(0, 53, 133) 20%, rgb(146, 181, 255));
+
+}
+
+.contenedor_img_texto{
+    width: 70%;
+    height: 100%;
+    padding: 1rem ;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.tarjeta_img_fav{
+    width: 35%;
+    height: 100%;
+}
+.contenedor_texto_fav{
+    width: 65%;
+    height: 100%;
+    display: flex;
+    flex-flow:column wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-wrap:balance;
+}
+.h2_fav{
+    font-size: 22px;
+    color: white;
+    text-wrap: balance ;
+}
+.precio_fav{
+    font-size: 20px;
+    font-weight: 500;
+    
+    color: white;
+}
+
+.contenedor_fav_carrito_num{
+    width: 30%;
+    height: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+
+.corazon_fav{
+    width: 25px;
+    height: 25px;
+}
+
+.contenedor_carrito_num{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+}
+.cantidad_fav{
+    width: 25%;
+    text-align: center;
+    padding: .3rem 0;
+}
+.carrito_fav{
+    width: 30px;
+    height: 30px;
+    
+}
+
+
+

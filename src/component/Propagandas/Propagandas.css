@@ -1,0 +1,21 @@
+.propaganda{
+    width: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.propaganda>a{
+    width: 100%;
+    text-align: center;
+}
+.propaganda>a>img{
+    width: 80%;
+
+}
+
+.propaganda>p{
+    width: 100%;
+    text-align: center;
+}

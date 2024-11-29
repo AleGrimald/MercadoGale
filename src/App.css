@@ -1,0 +1,99 @@
+.App {
+  width: 100%;
+  min-height: 100dvh;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background-color: rgb(255, 255, 255);
+  
+}
+
+.principal{
+  width: 75%;
+  height: 100%;
+  padding: 2rem 1rem;
+  margin-left: 16px;  
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+}
+
+.anuncios{
+  width: 22%;
+  padding: 2rem 0;
+
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: left;
+  gap: 4rem;
+
+  background-color: rgba(187, 187, 187, 0.8);
+}
+
+
+
+
+/* Móviles en modo vertical */
+@media only screen and (max-width: 450px) and (orientation: portrait) {
+  .App{
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden;
+  }
+  
+  .principal{
+    width: 100%;
+    padding: 1rem .4rem;
+    margin-left: 0;
+    margin-top: 0;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: rgba(187, 187, 187, 0.8);
+  }
+  
+  .anuncios{
+    width: 100%; 
+    padding: 2rem 1rem;
+    margin-right: 0;
+    margin-top: 0;
+  
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: left;
+    gap: 3rem;
+  
+    background-color: rgba(187, 187, 187, 0.8);
+  }
+}
+
+/* Móviles en modo horizontal */
+@media only screen and (max-width: 600px) and (orientation: landscape) {
+  body {
+    background-color: lightgreen;
+  }
+}
+
+/* Tabletas en modo vertical */
+@media only screen and (min-width: 601px) and (max-width: 1024px) and (orientation: portrait) {
+  body {
+    background-color: lightcoral;
+  }
+}
+
+/* Tabletas en modo horizontal */
+@media only screen and (min-width: 601px) and (max-width: 1024px) and (orientation: landscape) {
+  body {
+    background-color: lightgoldenrodyellow;
+  }
+}
+

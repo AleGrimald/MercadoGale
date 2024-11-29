@@ -1,0 +1,95 @@
+.tarjeta {
+    height: 420px;
+
+    border: 3px solid rgba(21, 124, 221, 0.384);
+    border-radius: 5px;
+    background:  rgba(39, 94, 175, 0.678);
+    
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    
+    flex: 0 1 31%;
+}
+
+.contenedor_texto{
+    width: 100%;
+    height: 50%;
+    padding: 0 0 .8rem .5rem;
+    display: flex;
+    flex-flow:column wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.precio,.producto_link,.condicion{
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+}
+
+.favorito{
+    width: 25px;
+    height: 25px;
+    position: relative;
+    top: -49%;
+    right: -43%;
+    text-align: center;
+    transition: all .3s ease-out;
+}
+.favorito:hover{
+    cursor: pointer;
+    transform: scale(1.2) translate(-5px, 5px);
+}
+
+.productos_h2{
+    font-size: 18px;
+    font-weight: 500;
+
+    color: white;
+}
+
+.tarjeta_img {
+    width: 100%;
+    height: 50%;
+    border-radius: 5px;
+}
+
+.producto_link{
+    text-align: left;
+    padding: .2rem .5rem;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: rgba(49, 182, 243, 0.514);
+    text-decoration: none;
+}
+
+
+/* Móviles en modo vertical */
+@media only screen and (max-width: 450px) and (orientation: portrait) {
+    .tarjeta {
+        height: 400px;
+        min-width: 90%;
+        gap: 0rem;
+    }
+}
+
+/* Móviles en modo horizontal */
+@media only screen and (max-width: 600px) and (orientation: landscape) {
+
+}
+
+/* Tabletas en modo vertical */
+@media only screen and (min-width: 601px) and (max-width: 1024px) and (orientation: portrait) {
+
+}
+
+/* Tabletas en modo horizontal */
+@media only screen and (min-width: 601px) and (max-width: 1024px) and (orientation: landscape) {
+
+}
+
+
+
+
