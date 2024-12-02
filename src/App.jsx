@@ -109,9 +109,27 @@ function App() {
 
   return (
     <div className="App">
-      <Header setBusqueda={setBusqueda} />
-      <Banner imagenesBanner={imagenesBanner} imagenAgrandada={imagenAgrandada} setImagenAgrandada={setImagenAgrandada} setBusqueda={setBusqueda} />
-      <BarraNavegacion setBtnFavorito={setBtnFavorito} btnFavorito={btnFavorito} setBusqueda={setBusqueda}/>
+      <Header 
+        setBusqueda={setBusqueda} 
+        setProductosVisibles={setProductosVisibles} 
+        setBtnFavorito={setBtnFavorito}
+      />
+
+      <Banner 
+        imagenesBanner={imagenesBanner} 
+        imagenAgrandada={imagenAgrandada} 
+        setImagenAgrandada={setImagenAgrandada} 
+        setBusqueda={setBusqueda} 
+        setBtnFavorito={setBtnFavorito}
+        setProductosVisibles={setProductosVisibles}
+      />
+      
+      <BarraNavegacion 
+        setBtnFavorito={setBtnFavorito} 
+        btnFavorito={btnFavorito} 
+        setBusqueda={setBusqueda}
+        setProductosVisibles={setProductosVisibles}
+      />
       
       {
         btnFavorito.valor 

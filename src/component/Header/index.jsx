@@ -1,12 +1,22 @@
 import './Header.css'
 
 const Header = (props)=>{
-    const {setBusqueda} = props;
+    const {setBusqueda, setBtnFavorito, setProductosVisibles} = props;
 
-    const busqueda = (e)=>{
+    const busqueda = async (e)=>{
         e.preventDefault();
-        const inpBuscar = document.querySelector("#buscar").value;
-        setBusqueda(inpBuscar);
+        const inpBuscar = document.querySelector("#header_buscar").value;
+        await setBusqueda(inpBuscar);
+        await setBtnFavorito({contenido:"Favoritos",valor:false});
+        setProductosVisibles(10);
+
+        const tarjeta = document.querySelector(".tarjeta");
+        if(tarjeta){
+            tarjeta.scrollIntoView({ behavior: 'smooth'});
+        }
+
+        let inpB = document.querySelector("#header_buscar");
+        inpB.value="";
     }
 
     return<header className='header'>

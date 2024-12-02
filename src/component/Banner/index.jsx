@@ -1,10 +1,17 @@
 import './Banner.css';
 
 const Banner = (props)=>{
-    const {imagenesBanner,imagenAgrandada,setImagenAgrandada,setBusqueda} = props;
+    const {imagenesBanner,imagenAgrandada,setImagenAgrandada,setBusqueda,setBtnFavorito,setProductosVisibles} = props;
 
-    const buscar = (nombre)=>{
-        setBusqueda(nombre)
+    const buscar = async (nombre)=>{
+        await setBusqueda(nombre);
+        await setBtnFavorito({contenido:"Favoritos",valor:false});
+        setProductosVisibles(10);
+
+        const tarjeta = document.querySelector(".tarjeta");
+        if(tarjeta){
+            tarjeta.scrollIntoView({ behavior: 'smooth'});
+        }
     }
     return<div className="banner_carousel">
         {

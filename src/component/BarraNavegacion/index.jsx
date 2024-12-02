@@ -1,12 +1,19 @@
 import './BarraNavegacion.css'
 
 export const BarraNavegacion = (props)=>{
-    const {setBusqueda,setBtnFavorito, btnFavorito } = props;
+    const {setBusqueda,setBtnFavorito, btnFavorito,setProductosVisibles } = props;
     const {contenido} = btnFavorito;
 
-    const busqueda = (e)=>{
+    const busqueda = async (e)=>{
         e.preventDefault();
-        setBusqueda("ofertas del dia");
+        await setBusqueda("ofertas del dia");
+        await setBtnFavorito({contenido:"Favoritos",valor:false});
+        setProductosVisibles(10);
+
+        const tarjeta = document.querySelector(".tarjeta");
+        if(tarjeta){
+            tarjeta.scrollIntoView({ behavior: 'smooth'});
+        }
     }
 
     const manejoBtnFav=()=>{
