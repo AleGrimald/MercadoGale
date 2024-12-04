@@ -1,12 +1,43 @@
 import './TarjetaFavorito.css';
+import { useState, useEffect } from 'react';
 
 const TarjetaFavorito = (props)=>{
-    const {producto, esFav, alternarFavorito, setCarro, carrito, imgFav, titleFav, precio} = props;
+    const {
+        producto, 
+        esFav, 
+        alternarFavorito, 
+        setCarro, 
+        carrito, 
+        imgFav, 
+        titleFav, 
+        precio, 
+        cantidad: cantidadProp, 
+        setCantidad: setCantidadProp,
+    } = props;
+
+    const [cantidad, setCantidad] = useState(cantidadProp);
+    useEffect(() => { 
+        setCantidadProp(cantidad); 
+    }, [cantidad,setCantidadProp]);
 
     const eliminarFav = () => {
         alternarFavorito(producto);
         setCarro(carrito.filter(item => item.title !== producto.title));
     };
+
+    const aumentarCantidad =()=>{
+        if(cantidad<=100){
+            setCantidad(cantidad+1);
+        } 
+    }
+
+    const disminuirCantidad =()=>{
+        if(cantidad>1){
+            setCantidad(cantidad-1);
+        }        
+    }
+
+    const precioTotal = precio * cantidad;
 
     return(
         <>
@@ -14,7 +45,20 @@ const TarjetaFavorito = (props)=>{
                 <img src={imgFav} alt={titleFav} className="tarjeta_img_fav" />
                 <div className='contenedor_texto_fav'>
                     <h2 className='h2_fav'>{titleFav}</h2>
-                    <p className='precio_fav'>${precio}</p>
+                    <p className='precio_fav'>${precioTotal.toFixed(2)}</p>
+                    
+                    <div className='contenedor_cant_btn'>
+                        <input
+                            value={cantidad}
+                            className='cantidad_fav' 
+                            type="text"
+                            readOnly
+                        />
+                        <div className='contenedor_btn'>
+                            <button className='botones_fav' onClick={aumentarCantidad}>+</button>
+                            <button className='botones_fav' onClick={disminuirCantidad}>-</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -27,7 +71,6 @@ const TarjetaFavorito = (props)=>{
                 />
 
                 <div className='contenedor_carrito_num'>
-                    <input className='cantidad_fav' type="number" min={1}/>
                     <img 
                         className='carrito_fav'
                         src={'carrito.svg'}
@@ -36,13 +79,6 @@ const TarjetaFavorito = (props)=>{
                     />
                 </div>
             </div>
-            
-
-            
-
-            
-            
-            
         </>
     );
 }

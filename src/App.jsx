@@ -15,16 +15,15 @@ function App() {
   //-----------------------------useState
 
   const [productos, setProductos] = useState([]);
+  const [productosVisibles, setProductosVisibles] = useState(null);
   const [carrito, setCarrito] = useState([]);
   const [favoritos, setFavoritos] = useState({});
   const [btnFavorito, setBtnFavorito] = useState({contenido:"Favoritos",valor:false});
-  
   const [busqueda, setBusqueda] = useState("$pokemon");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imagenAgrandada, setImagenAgrandada] = useState(null);
   const [ofertas, setOfertas] = useState([]);
-  
-  const [productosVisibles, setProductosVisibles] = useState(null); 
+  const [cantidades, setCantidades] = useState({});
 
   //-----------------------------custom Hooks
   const thresholdValor=0;
@@ -36,11 +35,13 @@ function App() {
   const alternarFavorito = (producto) => {
     const esFavorito = favoritos[producto.title];
     const nuevoFavoritos = { ...favoritos, [producto.title]: !esFavorito };
-
     setFavoritos(nuevoFavoritos);
   };
 
-
+  const actualizarCantidad = (id, nuevaCantidad) => { 
+    setCantidades(prev => ({ ...prev, [id]: nuevaCantidad }));
+  };
+  
   //-----------------------------objetos Datos
   const imagenesBanner = [
     { nombre: "Gamer", link: 'https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4HELg?q=90&o=f&w=480&h=270' },
@@ -90,7 +91,7 @@ function App() {
     axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${busqueda}`)
       .then(response => setProductos(response.data.results))
       .catch(error => console.error('Error:', error));
-  }, [busqueda,productos]);
+  }, [busqueda]);
 
   useEffect(() => { 
     if (intersectadoSpan)
@@ -133,11 +134,11 @@ function App() {
       
       {
         btnFavorito.valor 
-          ?<main className='principal'>
+          ?<main className='main_principal'>
             {carrito.length > 0 ? carrito.map((prod, index) => 
-              (<div className='tarjeta_favorito' key={index}>
+              (<div className='tarjeta_favorito' key={prod.id}>
                 <TarjetaFavorito
-                  key={index}
+                  idFav={index}
                   imgFav={prod.thumbnail}
                   titleFav={prod.title}
                   producto={prod}
@@ -146,17 +147,19 @@ function App() {
                   carrito={carrito}
                   esFav={true}
                   alternarFavorito={alternarFavorito}
+                  cantidad={cantidades[prod.id] || 1} 
+                  setCantidad={(nuevaCantidad) => actualizarCantidad(prod.id, nuevaCantidad)}
                 />
               </div>)) 
               :"TU LISTA DE DESEOS ESTA VACIA"
             }
           </main>
-          :<main className='principal'>
+          :<main className='main_principal'>
             {
               productos.slice(0, productosVisibles).map((prod, index) => 
-              (<div className="tarjeta" key={index}>
+              (<div className="tarjeta" key={prod.id}>
                 <TarjetaProducto
-                  key={index} 
+                  id={prod.id}
                   imgProd={prod.thumbnail} 
                   titleProd={prod.title} 
                   producto={prod} 
@@ -166,7 +169,7 @@ function App() {
                   setCarro={setCarrito} 
                   carrito={carrito} 
                   esFav={!!favoritos[prod.title]} 
-                  alternarFavorito={alternarFavorito} 
+                  alternarFavorito={alternarFavorito}
                 /> 
               </div>))
             }

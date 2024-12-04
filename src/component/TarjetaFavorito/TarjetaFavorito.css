@@ -65,17 +65,44 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 1rem;
+    flex-wrap: nowrap;
 }
+.contenedor_cant_btn{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: .6rem;
+}
+
 .cantidad_fav{
-    width: 25%;
+    width: 20%;
+    height: 2.2rem;
     text-align: center;
-    padding: .3rem 0;
+    border-radius: 5px;
+    border: none;
 }
 .carrito_fav{
     width: 30px;
     height: 30px;
-    
+}
+
+.contenedor_btn{
+    width: 60%;
+    height: 2.5rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    gap: .2rem;
+
+}
+.botones_fav{
+    width: 20%;
+    height: 40%;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
 }
 
 
